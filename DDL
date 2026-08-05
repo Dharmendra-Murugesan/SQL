@@ -3,6 +3,11 @@ create database DAnalytics;
 show databases;
 use Danalytics;
 create database test;
+
 show databases;
 drop database test;
 show databases;
+use danalytics;
+create table learn (sno int, name varchar(100));
+select * from learn;
+insert into learn (sno,name) values (1,'Ram');
