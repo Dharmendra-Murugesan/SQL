@@ -1,0 +1,8 @@
+show databases;
+create database DAnalytics;
+show databases;
+use Danalytics;
+create database test;
+show databases;
+drop database test;
+show databases;
