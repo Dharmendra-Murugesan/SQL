@@ -11,3 +11,20 @@ use danalytics;
 create table learn (sno int, name varchar(100));
 select * from learn;
 insert into learn (sno,name) values (1,'Ram');
+
+
+create database DNA;
+show databases;
+use DNA;
+create table test (sno int, name varchar(100), marks int);
+insert into test (sno, name, marks) values (1,'Ram',100);
+insert into test (sno, name, marks) values (2,'raj',90), (3,'Roc',80);
+select * from test;
+update test set name='Rocky' where sno=3;
+select * from test;
+update test set name='rocky bhai',sno=10 where sno=3;
+select * from test;
+truncate table test;
+select * from test;
+drop table test;
+select * from test;
