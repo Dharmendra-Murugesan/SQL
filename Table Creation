@@ -1,0 +1,35 @@
+create database DDL;
+use DDL;
+create table EDB (
+ Employee_id int primary key,
+ First_name varchar(100) not null,
+ Last_name varchar(100) not null,
+ Hire_date date not null,
+ Salary decimal(10,2)
+ );
+insert into EDB (
+employee_id, 
+First_name, 
+Last_name, 
+Hire_date, 
+Salary) 
+values 
+(1, 'Ram','Raj','2024-06-17', 80000);
+
+create table HPEDB as
+select
+employee_id,
+First_name,
+Last_name,
+salary
+from EDB
+where salary > 70000;
+select * from EDB;
+select * from HPEDB;
+
+** with high_salary_DB_cte as (
+select employee_id, First_name, salary
+from EDB
+where salary > 50000)
+create table HSE via cte **
+select * from high_salary_DB_cte; 
