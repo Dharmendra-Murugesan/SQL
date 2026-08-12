@@ -1,0 +1,32 @@
+create database AA;
+use aa;
+create table wed (
+sno int, 
+Fname varchar (100), 
+Lname varchar (100), 
+Jdate date, 
+salary decimal(10,2)
+);
+insert into wed (
+sno, Fname, Lname, Jdate, Salary)
+values
+(1, 'AL','Ar','2026-06-17',60000);
+insert into wed (
+sno, Fname, Lname, Jdate, Salary)
+values
+('2','Pw','Kl','2026-07-18','70000');
+create table mon as 
+select
+sno,
+Fname,
+Salary
+from
+wed where salary > 50000;
+select * from wed;
+select * from mon;
+alter table mon add place varchar(100);
+desc mon;
+alter table mon drop column place;
+select * from mon;
+alter table mon rename to tue;
+desc tue;
