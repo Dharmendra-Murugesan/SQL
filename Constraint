@@ -1,0 +1,45 @@
+//// composite primary key
+create table dna.ddl (
+ride_id int,
+rider_id int,
+passenger_id int,
+drop_location varchar (100),
+Pickup_location varchar (100),
+amount decimal(5,2),
+primary key (ride_id, rider_id)
+);
+
+//// primay and unique key
+create table dna.cons (
+Emp_id int primary key,
+name varchar (100),
+mail_id varchar(100) unique
+);
+insert into dna.cons (
+emp_id,name,mail_id)
+values
+(1,'Ra','Ra@mail.com'),(2,'Rk','Rk@mail.com'),(3,'Ku','Ku@mail.com'),(4,'Rak',null);
+****insert into dna.cons(
+emp_id,name,mail_id)
+values
+(1,'uk','uk@mail,com');****
+
+//// not null
+create table dna.ride (
+ride_id int primary key,
+rider_id int,
+passenger_id int,
+drop_location varchar (100) not null,
+Pickup_location varchar (100) not null,
+amount decimal(5,2) not null
+
+/// check
+create table dna.ride1 (
+ride_id int primary key,
+rider_id int,
+passenger_id int,
+drop_location varchar (100),
+Pickup_location varchar (100),
+amount decimal(5,2) check (amount > 0)
+);
+);
