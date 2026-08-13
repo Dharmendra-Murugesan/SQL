@@ -28,5 +28,42 @@ alter table mon add place varchar(100);
 desc mon;
 alter table mon drop column place;
 select * from mon;
+
+show databases;
+use dna;
+create table dna.ddl (
+sno int, 
+fname varchar(100), 
+lname varchar(100), 
+place varchar(100), 
+salary decimal(10,2)
+);
+drop table dna.ddl;
+create table dna.ddl (
+ride_id int,
+rider_id int,
+passenger_id int,
+drop_location varchar (100),
+Pickup_location varchar (100),
+amount decimal(5,2)
+);
+insert into dna.ddl (
+ride_id,
+rider_id,
+passenger_id,
+drop_location,
+pickup_location,
+amount) 
+values
+(1,100,1,'CHN','TBM',120), 
+(2,100,2,'TBM','VLCY',200),
+(3,100,1,'VLCY','CHN',400),
+(4,100,2,'CHN','VLCY',500);
+select * from dna.ddl;
+desc dna.ddl;
+select * from dna.ddl where amount >200;
+select * from dna.ddl where amount >200 and drop_location = 'CHN';
+alter table dna.ddl add tips int;
+select * from dna.ddl;
 alter table mon rename to tue;
 desc tue;
