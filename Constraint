@@ -42,4 +42,17 @@ drop_location varchar (100),
 Pickup_location varchar (100),
 amount decimal(5,2) check (amount > 0)
 );
+
+/// Foreign key
+drop table if exists dna.ride1;
+create table dna.ride1 (
+ride_id int primary key,
+rider_id int,
+passenger_id int,
+drop_location varchar (100),
+Pickup_location varchar (100),
+amount decimal(5,2) check (amount > 0),
+foreign key (emp_id) references dna.cons(emp_id)
 );
+
+
