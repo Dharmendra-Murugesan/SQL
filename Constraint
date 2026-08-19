@@ -94,3 +94,5 @@ delete from dna.ride where emp_id=1;
 alter table dna.ride add column is_delete boolean default false;    //// default and boolean expression (to maintain default value
 update dna.ride set is_delete = '1' where emp_id = '2';
 alter table dna.empdb add column country varchar (5) default 'IND';   //// by default country should be 'IND'
+
+super, cadidate key
