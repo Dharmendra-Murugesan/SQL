@@ -1,0 +1,41 @@
+use dna;
+create table custome_transaction (
+S_no int serial default value,
+customer_id int primary key,
+customer_name varchar (100),
+Product_name varchar (100),
+price decimal (6,2) not null,
+is_viewed boolean,
+is_ordered boolean,
+Status varchar(100)
+);
+insert into dna.custome_transaction values
+(1,100, 'Ram', 'Mobile', 3000, TRUE, FALSE, 'Ordered');
+insert into dna.custome_transaction values
+(2,200, 'RaJ', 'Laptop', 4000, FALSE, TRUE, 'Failed');
+insert into dna.custome_transaction values
+(3,300, 'Raa', 'TV', 5000, true, TRUE, 'ordered'),
+(4,400, 'Rab', 'iPad', 6000, FALSE, false, 'failed'),
+(5,500, 'Rac', 'Headphone', 1000, true, TRUE, 'ordered'),
+(6,600, 'Rad', 'Laptop', 5000, true, false, 'pending'),
+(7,700, 'Rae', 'Mobile', 4000, FALSE, TRUE, 'Failed'),
+(8,800, 'Raf', 'TV', 7000, true, TRUE, 'ordered');
+select * from dna.custome_transaction;
+select count(*) from dna.custome_transaction;
+select count(*) from dna.custome_transaction where status = 'Failed';
+select count(*) from dna.custome_transaction where product_name = 'Mobile' and price > 3000;
+select count(*) from dna.custome_transaction where product_name = 'TV' or status = 'Failed';
+select count(*) from dna.custome_transaction where Status in ('Ordered','Failed');
+select count(*) from dna.custome_transaction where Status not in ('Pending');
+select sum(price) from dna.custome_Transaction;
+select sum(price) from dna.custome_Transaction where status = 'Ordered';
+select sum(price) as Total_Amount from dna.custome_Transaction where status = 'Ordered';
+select min(price) as Minimum_Amount from dna.custome_Transaction;
+select max(price) as Maximum_Amount from dna.custome_Transaction;
+select Avg(price) as Average_Amount from dna.custome_Transaction;
+select product_name, sum(price) as Total_Amount from dna.custome_Transaction group by product_name;
+select product_name, 
+sum(price) as Total_Amount 
+from dna.custome_Transaction 
+group by product_name
+having sum(price) > 4000;
