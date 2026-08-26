@@ -1,0 +1,67 @@
+use dna;
+create table custome_transaction (
+S_no int serial default value,
+customer_id int primary key,
+customer_name varchar (100),
+Product_name varchar (100),
+price decimal (6,2) not null,
+is_viewed boolean,
+is_ordered boolean,
+Status varchar(100)
+);
+insert into dna.custome_transaction values
+(1,100, 'Ram', 'Mobile', 3000, TRUE, FALSE, 'Ordered');
+insert into dna.custome_transaction values
+(2,200, 'RaJ', 'Laptop', 4000, FALSE, TRUE, 'Failed');
+insert into dna.custome_transaction values
+(3,300, 'Raa', 'TV', 5000, true, TRUE, 'ordered'),
+(4,400, 'Rab', 'iPad', 6000, FALSE, false, 'failed'),
+(5,500, 'Rac', 'Headphone', 1000, true, TRUE, 'ordered'),
+(6,600, 'Rad', 'Laptop', 5000, true, false, 'pending'),
+(7,700, 'Rae', 'Mobile', 4000, FALSE, TRUE, 'Failed'),
+(8,800, 'Raf', 'TV', 7000, true, TRUE, 'ordered');
+select customer_name, price,
+CASE
+when price > 5000 then 'Elite'
+when price between 3000 and 5000 then 'Gold'
+when price <3000 then 'Silver'
+else 'no data'
+end as Price_Category
+from dna.custome_transaction;
+select customer_name,
+case
+when status = 'Failed' then is_viewed
+else 'Not Viewed'
+end as Result
+from dna.custome_transaction;
+select customer_name,
+case
+when status = 'Failed' then is_viewed
+else is_ordered
+end as Result
+from dna.custome_transaction;
+
+create table dna.SDB(
+S_no int auto_increment key,
+St_name varchar (100),
+mail_id varchar (100),
+phone_no int unique key,
+Location varchar(100)
+);
+insert into dna.sdb values
+(1,'Sam','sam@mail.com',23456,'CHN'),
+(2,'Ram','ram@mail.com','34567','MDU'),
+(3,'Pam','None','45678','CBE'),
+(4,'Jam','None',null,'BLR');
+select * from dna.sdb;
+select * from dna.sdb limit 2;
+select
+st_name,
+mail_id,
+phone_no,
+case
+when mail_id is null then phone_no
+when phone_no is null then mail_id
+else 'NA'
+end as Contact
+from dna.sdb;
