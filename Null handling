@@ -1,0 +1,45 @@
+create table dna.SDBA(
+S_no int auto_increment key,
+St_name varchar (100),
+mail_id varchar (100),
+phone_no int unique key,
+Location varchar(100)
+);
+insert into dna.sdba values
+(1,'Sam','sam@mail.com',23456,'CHN'),
+(2,'Ram','ram@mail.com','34567','MDU'),
+(3,'Pam',null,'45678','CBE'),
+(4,'Jam',null,null,'BLR');
+select * from dna.sdba;
+select
+st_name,
+mail_id,
+phone_no
+from dna.sdba
+where
+st_name is null
+or mail_id is null
+or phone_no is null;
+select
+st_name,
+mail_id,
+phone_no
+from dna.sdba
+where
+st_name is null
+and mail_id is null
+and phone_no is null;
+select
+st_name,
+mail_id,
+phone_no
+from dna.sdba
+where
+st_name is null
+and mail_id is null
+or phone_no is null;
+
+select
+phone_no,
+coalesce (phone_no,'00000')
+from dna.sdba;
