@@ -1,0 +1,20 @@
+create table dna.SDBb(
+S_no int auto_increment key,
+St_name varchar (100),
+mail_id varchar (100),
+phone_no int unique key,
+Location varchar(100)
+);
+insert into dna.sdbb values
+(1,'Sam','sam@mail.com',23456,'CHN'),
+(2,'Ram','ram@mail.com','34567','MDU'),
+(3,'Pam','pam@mail.com','45678','CBE'),
+(4,'Jam','jam@mail.com','56789','BLR');
+select length (st_name) as name_length
+from dna.sdbb;
+select length (st_name) as name_length,
+lower(location) as place
+from dna.sdbb;
+select length (st_name) as name_length,
+Upper(location) as place
+from dna.sdbb;
