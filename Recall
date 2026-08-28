@@ -1,0 +1,40 @@
+create database D;
+use D;
+create table Emp_db(
+S_no int auto_increment key,
+Emp_id int,
+Emp_name varchar (100),
+Department varchar(100),
+Salary decimal(10,2),
+Site varchar (100)
+);
+insert into Emp_db values
+(1,001,'John','OPS',80000,'US'),
+(2,002,'Mol','SCH',70000,'MLK'),
+(3,004,'Kis',Null,100000,'MNS'),
+(4,005,'Nic','CCO',50000,null),
+(5,006,'Tin',null, null, null);
+select * from Emp_db;
+select * from emp_db limit 3;
+select count(*) from emp_db;
+select count(Department) from emp_db;
+select sum(salary) as Total_expenses from emp_db;
+select Emp_name from emp_db where site = 'US';
+update Emp_db set Department = 'OPS' where emp_id = 005;
+select sum(salary) as Department_exp from emp_db where department = 'OPS';
+select emp_name, Department,
+case
+when salary <50000 then 'Low Salary'
+When Salary between 50000 and 80000 then 'Mid Salary'
+when salary > 80000 then 'High salary'
+else 'NA'
+end as 'Salary_category'
+from emp_db;
+select emp_name, department, salary,
+case
+when department is null then site
+when salary is null then '0.0000'
+when site is null then department
+else 'NA'
+end as 'Filler'
+from emp_db;
